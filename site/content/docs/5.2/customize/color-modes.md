@@ -1,14 +1,13 @@
 ---
 layout: docs
 title: Color modes
-description: Bootstrap now supports color modes, or themes, as of v5.3.0. Explore our default light theme and new dark mode theme, or create your own using our themes as your template.
+description: Bootstrap now supports color modes, or themes, as of v5.3.0. Explore our default light color mode and the new dark mode, or create your own using our styles as your template.
 group: customize
 toc: true
 prev: color
 next: components
+added: "5.3"
 ---
-
-{{< added-in "5.3.0" >}}
 
 ## Dark mode
 
@@ -56,10 +55,12 @@ We've implemented...
 
 ## Nesting color modes
 
-Use `data-bs-theme` on a nested element to change the color mode for a group of elements or components. In the example below, we have an outer dark mode with a nested light mode. You'll notice components naturally adapt their appearance without modification, but the nested `data-bs-theme="light"` needs help to reset some global styles. This is because `data-bs-theme` doesn't reset the globally declared `<body>` colors, so we have to add `.bg-body` and `.text-body`.
+Use `data-bs-theme` on a nested element to change the color mode for a group of elements or components. In the example below, we have an outer dark mode with a nested light mode. You'll notice components naturally adapt their appearance, but you may need to add some utilities along the way to utilize the styles specific to each color mode.
 
-{{< example class="" >}}
-<div data-bs-theme="dark">
+For example, despite using `data-bs-theme="dark"` on a random `<div>`, the `<div>` has no `background-color` as it's set on the `<body>`. As such, if you want the `color` and `background-color` to adapt, you'll need to add `.text-body` and `.bg-body`.
+
+{{< example class="p-0" >}}
+<div data-bs-theme="dark" class="p-3 text-body bg-body">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="#">Color modes</a></li>
@@ -87,7 +88,7 @@ Use `data-bs-theme` on a nested element to change the color mode for a group of 
     </ul>
   </div>
 
-  <div data-bs-theme="light" class="p-3 bg-body text-body rounded">
+  <div data-bs-theme="light" class="p-3 text-body bg-body rounded">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Color modes</a></li>
@@ -121,9 +122,9 @@ Use `data-bs-theme` on a nested element to change the color mode for a group of 
 
 ## Usage
 
-Our new dark mode option is enabled by default for all users of Bootstrap. You can disable our dark mode via Sass by changing `@enable-dark-mode` to `false`.
+Our new dark mode option is available to use for all users of Bootstrap, but it's controlled via data attributes instead of media queries and does not automatically toggle your project's color mode. You can disable our dark mode entirely via Sass by changing `@enable-dark-mode` to `false`.
 
-In addition, we use a custom Sass mixin, `color-mode()`, to help you control _how_ color modes are applied. By default, we use a `data` attribute approach, allowing you to create more user-friendly experiences where your visitors can choose to have an automatic dark mode or control their preference (like in our own docs here). This is also an easy way to add different themes and more custom color modes beyond light and dark.
+We use a custom Sass mixin, `color-mode()`, to help you control _how_ color modes are applied. By default, we use a `data` attribute approach, allowing you to create more user-friendly experiences where your visitors can choose to have an automatic dark mode or control their preference (like in our own docs here). This is also an easy and scalable way to add different themes and more custom color modes beyond light and dark.
 
 In case you want to use media queries and only make color modes automatic, you can change the mixin's default type via Sass variable. Consider the following snippet and it's compiled CSS output.
 

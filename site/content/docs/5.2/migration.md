@@ -15,7 +15,7 @@ toc: true
 
 Learn more by reading the new [color modes documentation]({{< docsref "/customize/color-modes" >}}).
 
-- **Global support for light (default) and dark color modes.** Set color mode globally on the `:root` element, on groups of elements and components with a wrapper class, or directly on components.
+- **Global support for light (default) and dark color modes.** Set color mode globally on the `:root` element, on groups of elements and components with a wrapper class, or directly on components, with `data-bs-theme="light|dark"`. Also included is a new `color-mode()` mixin that can output a ruleset with the `data-bs-theme` selector or a media query, depending on your preference.
 
   <span class="badge text-warning-emphasis bg-warning-subtle">Deprecated</span>  Color modes replace dark variants for components, so  `.carousel-dark`, `.dropdown-menu-dark`, and `.navbar-dark` are deprecated.
 
@@ -39,11 +39,17 @@ Learn more by reading the new [color modes documentation]({{< docsref "/customiz
 
 ### Components
 
-#### Alerts
+#### Alert
 
 - Alert variants are now styled via CSS variables.
 
 - <span class="badge text-warning-emphasis bg-warning-subtle">Deprecated</span> The `.alert-variant()` mixin is now deprecated. We now [use the Sass loop]({{< docsref "/components/alerts#sass-loop" >}}) directly to modify the component's default CSS variables for each variant.
+
+#### List group
+
+- Alert variants are now styled via CSS variables.
+
+- <span class="badge text-warning-emphasis bg-warning-subtle">Deprecated</span> The `.list-group-variant()` mixin is now deprecated. We now [use the Sass loop]({{< docsref "/components/list-group#sass-loop" >}}) directly to modify the component's default CSS variables for each variant.
 
 ### Forms
 

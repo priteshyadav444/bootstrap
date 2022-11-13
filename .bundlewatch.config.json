@@ -14,7 +14,7 @@
     },
     {
       "path": "./dist/css/bootstrap-reboot.min.css",
-      "maxSize": "3.0 kB"
+      "maxSize": "3.25 kB"
     },
     {
       "path": "./dist/css/bootstrap-utilities.css",
@@ -22,7 +22,7 @@
     },
     {
       "path": "./dist/css/bootstrap-utilities.min.css",
-      "maxSize": "8.75 kB"
+      "maxSize": "9.5 kB"
     },
     {
       "path": "./dist/css/bootstrap.css",
@@ -30,7 +30,7 @@
     },
     {
       "path": "./dist/css/bootstrap.min.css",
-      "maxSize": "28.25 kB"
+      "maxSize": "28.75 kB"
     },
     {
       "path": "./dist/js/bootstrap.bundle.js",

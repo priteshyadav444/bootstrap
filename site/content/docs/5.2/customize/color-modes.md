@@ -15,7 +15,7 @@ added: "5.3"
 
 Alternatively, you can also switch to a media query implementation thanks to our color mode mixin—see [the usage section for details](#usage). Heads up though—this eliminates your ability to change themes on a per-component basis as shown below.
 
-### Example
+## Example
 
 For example, to change the color mode of a dropdown menu, add `data-bs-theme="light"` or `data-bs-theme="dark"` to the parent `.dropdown`. Now, no matter the global color mode, these dropdowns will display with the specified theme value.
 
@@ -49,9 +49,20 @@ For example, to change the color mode of a dropdown menu, add `data-bs-theme="li
 </div>
 {{< /example >}}
 
-### How it works
+## How it works
 
-We've implemented...
+- As shown above, color mode styles are controlled by the `data-bs-theme` attribute. This attribute can be applied to the `<html>` element, or to any other element or Bootstrap component. If applied to the `<html>` element, it will apply to everything. If applied to a component or element, it will be scoped to that specific component or element.
+
+- For each color mode you wish to support, you'll need to add new overrides for the shared global CSS variables. We do this already in our `_root.scss` stylesheet for dark mode, with light mode being the default values. In writing color mode specific styles, use the mixin:
+
+  ```scss
+  // Color mode variables in _root.scss
+  @include color-mode(dark) {
+    // CSS variable overrides here...
+  }
+  ```
+
+- We use a custom `_variables-dark.scss` to power those shared global CSS variable overrides for dark mode. This file isn't required for your own custom color modes, but it's required for our dark mode for two reasons. First, it's better to have a single place to reset global colors. Second, some Sass variables had to be redelcared for background images embedded in our CSS for accordions, form components, and more.
 
 ## Nesting color modes
 
@@ -120,7 +131,7 @@ For example, despite using `data-bs-theme="dark"` on a random `<div>`, the `<div
 </div>
 {{< /example >}}
 
-## Usage
+## Sass usage
 
 Our new dark mode option is available to use for all users of Bootstrap, but it's controlled via data attributes instead of media queries and does not automatically toggle your project's color mode. You can disable our dark mode entirely via Sass by changing `@enable-dark-mode` to `false`.
 
